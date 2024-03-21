@@ -1,18 +1,34 @@
 import React from "react";
 
-export function Accordion() {
+
+type AccordionPropsType = {
+    titleValue: string
+    collapsed: boolean
+}
+
+export function Accordion({titleValue, collapsed}: AccordionPropsType) {
     console.log("Accordion rendering")
+    if (collapsed) return (
+        <div>
+            <AccordionTitle title={titleValue}/>
+        </div>
+    )
     return (
         <div>
-            <AccordionTitle />
+            <AccordionTitle title={titleValue}/>
             <AccordionBody />
         </div>
     )
 }
 
-function AccordionTitle() {
+
+type AccordionTitlePropsType = {
+    title: string
+}
+
+function AccordionTitle({title}: AccordionTitlePropsType) {
     console.log("AccordionTitle rendering")
-    return <h3>Menu</h3>
+    return <h3>{title}</h3>
 }
 
 function AccordionBody() {
