@@ -29,6 +29,6 @@ function Star({selected}: StarPropsType) {
     console.log("Star rendering");
 
     return (
-        <span>{selected ? <b>star</b> : "star"}</span>
+        <span>{selected ? <b>star </b> : "star "}</span>
     )
 }

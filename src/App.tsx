@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import {Accordion} from "./components/Accordion/Accordion";
+import {Rating} from "./components/Rating/Rating";
 
 function App() {
     console.log("App rendering");
@@ -13,7 +15,7 @@ function App() {
     // }
 
     return (
-        <div>
+        <div className={"App"}>
             <PageTitle title={"Hello World, I'm React App)"}/>
             {/*<PageTitle title={"Users page"}/>*/}
             {/*<Accordion titleValue={"Menu"} collapsed={false}/>*/}
@@ -30,8 +32,11 @@ function App() {
 
             <UncontrolledAccordion titleValue={"Uncontrolled Menu"} />
             <UncontrolledAccordion titleValue={"Uncontrolled Users"} />
+            {/*<Accordion titleValue={"Controlled Menu"} collapsed={false} />*/}
+            {/*<Accordion titleValue={"Controlled Users"} collapsed={false} />*/}
 
             <UncontrolledRating />
+            {/*<Rating value={3} />*/}
         </div>
     );
 }
