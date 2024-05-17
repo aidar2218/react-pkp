@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
 
-type OnOffPropsType = {
-    mode: boolean
-    changeMode: (value: boolean) => void
-}
+export const UncontrolledOnOff = () => {
+    console.log("UncontrolledOnOff rendering")
 
-export const OnOff = ({mode, changeMode}: OnOffPropsType) => {
-    console.log("OnOff rendering")
+    const [mode, setMode] = useState(true);
 
     console.log("Mode is " + mode);
 
@@ -40,12 +37,13 @@ export const OnOff = ({mode, changeMode}: OnOffPropsType) => {
 
     return (
         <div>
+            <h3>Uncontrolled OnOff</h3>
             <div style={onStyle}
-                 onClick={() => changeMode(true)}>
+                 onClick={() => setMode(true)}>
                 On
             </div>
             <div style={offStyle}
-                 onClick={() => changeMode(false)}>
+                 onClick={() => setMode(false)}>
                 Off
             </div>
             <div style={indicatorStyle}></div>

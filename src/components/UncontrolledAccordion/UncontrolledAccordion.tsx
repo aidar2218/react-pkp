@@ -14,7 +14,7 @@ export function UncontrolledAccordion({titleValue}: UncontrolledAccordionPropsTy
 
     return (
         <div>
-            <AccordionTitle title={titleValue} callback={bodyCollapse}/>
+            <AccordionTitle title={titleValue} onClick={bodyCollapse}/>
             {!collapsed && <AccordionBody/>}
         </div>
     )
@@ -23,12 +23,12 @@ export function UncontrolledAccordion({titleValue}: UncontrolledAccordionPropsTy
 
 type AccordionTitlePropsType = {
     title: string
-    callback: () => void
+    onClick: () => void
 }
 
-function AccordionTitle({title, callback}: AccordionTitlePropsType) {
+function AccordionTitle({title, onClick}: AccordionTitlePropsType) {
     console.log("AccordionTitle rendering")
-    return <h3 onClick={callback}>{title}</h3>
+    return <h3 onClick={onClick}>{title}</h3>
 }
 
 function AccordionBody() {
