@@ -21,13 +21,13 @@ function App() {
         <div className={"App"}>
             <PageTitle title={"Hello World, I'm React App)"}/>
 
-            <Accordion titleValue={"Menu"} collapsed={accordionCollapsed} collapseCallback={collapseCallback} />
+            <Accordion titleValue={"Menu"} collapsed={accordionCollapsed} onChange={collapseCallback} />
             <Rating value={ratingValue} callback={setRatingValue}/>
             <OnOff mode={mode} changeMode={changeMode} />
 
             <UncontrolledAccordion titleValue={"Uncontrolled Menu"} />
             <UncontrolledRating />
-            <UncontrolledOnOff />
+            <UncontrolledOnOff onChange={changeMode} /> {mode.toString()}
         </div>
     );
 }

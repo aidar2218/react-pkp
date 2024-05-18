@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 
-export const UncontrolledOnOff = () => {
+type UncontrolledOnOffPropsType = {
+    onChange: (value: boolean) => void;
+}
+
+export const UncontrolledOnOff = ({onChange}: UncontrolledOnOffPropsType) => {
     console.log("UncontrolledOnOff rendering")
 
     const [mode, setMode] = useState(true);
-
-    console.log("Mode is " + mode);
-
 
     const onStyle = {
         width: '30px',
@@ -35,15 +36,24 @@ export const UncontrolledOnOff = () => {
         backgroundColor: mode ? 'lightGreen' : 'red',
     };
 
+    const onClicked = () => {
+        setMode(true);
+        onChange(true);
+    }
+    const offClicked = () => {
+        setMode(false);
+        onChange(false);
+    }
+
     return (
         <div>
             <h3>Uncontrolled OnOff</h3>
             <div style={onStyle}
-                 onClick={() => setMode(true)}>
+                 onClick={onClicked}>
                 On
             </div>
             <div style={offStyle}
-                 onClick={() => setMode(false)}>
+                 onClick={offClicked}>
                 Off
             </div>
             <div style={indicatorStyle}></div>

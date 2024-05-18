@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 type OnOffPropsType = {
     mode: boolean
@@ -7,8 +7,6 @@ type OnOffPropsType = {
 
 export const OnOff = ({mode, changeMode}: OnOffPropsType) => {
     console.log("OnOff rendering")
-
-    console.log("Mode is " + mode);
 
 
     const onStyle = {

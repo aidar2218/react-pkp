@@ -4,14 +4,14 @@ import React from "react";
 type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
-    collapseCallback: () => void
+    onChange: () => void
 }
 
-export function Accordion({titleValue, collapsed, collapseCallback}: AccordionPropsType) {
+export function Accordion({titleValue, collapsed, onChange}: AccordionPropsType) {
     console.log("Accordion rendering");
     return (
         <div>
-            <AccordionTitle title={titleValue} onClick={collapseCallback}/>
+            <AccordionTitle title={titleValue} onClick={onChange}/>
             {!collapsed && <AccordionBody/>}
         </div>
     )
