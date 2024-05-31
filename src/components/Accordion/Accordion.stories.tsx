@@ -5,6 +5,7 @@ import {useState} from "react";
 
 const meta: Meta<typeof Accordion> = {
     component: Accordion,
+    title: 'Accordion',
 };
 
 export default meta;
