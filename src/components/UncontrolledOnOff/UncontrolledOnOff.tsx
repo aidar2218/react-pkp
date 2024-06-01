@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 
 type UncontrolledOnOffPropsType = {
     onChange: (value: boolean) => void;
+    defaultMode?: boolean
 }
 
-export const UncontrolledOnOff = ({onChange}: UncontrolledOnOffPropsType) => {
+export const UncontrolledOnOff = ({onChange, defaultMode}: UncontrolledOnOffPropsType) => {
     console.log("UncontrolledOnOff rendering")
 
-    const [mode, setMode] = useState(true);
+    const [mode, setMode] = useState<boolean>(defaultMode ? defaultMode : false);
 
     const onStyle = {
         width: '30px',
