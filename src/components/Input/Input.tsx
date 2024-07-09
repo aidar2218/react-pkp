@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const UncontrolledInput = () => {
+export const Input = () => {
     return (
         <input />
     );
