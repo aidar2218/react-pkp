@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
-import {Accordion} from "./components/Accordion/Accordion";
+import {Accordion, ItemType} from "./components/Accordion/Accordion";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import {OnOff} from "./components/OnOff/OnOff";
@@ -14,6 +14,15 @@ function App() {
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
     const [mode, setMode] = useState<boolean>(false);
 
+    const takeUser = (id: string) => alert(`User with ID: ${id} was clicked`);
+
+    const users: ItemType[] = [
+        {title: "Aidar", id: "1"},
+        {title: "Baizak", id: "2"},
+        {title: "Azim", id: "3"},
+        {title: "Agbar", id: "4"}
+    ];
+
     const collapseCallback = () => setAccordionCollapsed(!accordionCollapsed);
     const changeMode = (value: boolean) => setMode(value);
 
@@ -21,7 +30,11 @@ function App() {
         <div className={"App"}>
             <PageTitle title={"Hello World, I'm React App)"}/>
 
-            <Accordion titleValue={"Menu"} collapsed={accordionCollapsed} onChange={collapseCallback} />
+            <Accordion titleValue={"Menu"}
+                       collapsed={accordionCollapsed}
+                       onChange={collapseCallback}
+                       items={users}
+                       callback={takeUser}/>
             <Rating value={ratingValue} callback={setRatingValue}/>
             <OnOff mode={mode} changeMode={changeMode} />
 
