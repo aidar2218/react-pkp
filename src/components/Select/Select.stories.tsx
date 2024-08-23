@@ -1,6 +1,6 @@
 import type {Meta} from '@storybook/react';
 import {Select} from './Select';
-import {useState} from "react";
+import React, {useState} from "react";
 
 const meta: Meta<typeof Select> = {
     component: Select,
@@ -28,9 +28,9 @@ export const WithoutValue = () => {
         <Select onChange={setValue}
                 value={value}
                 items={[
-            {id: "1", title: "Bishkek"},
-            {id: "2", title: "Astana"},
-            {id: "3", title: "Tashkent"},
-        ]}/>
+                    {id: "1", title: "Bishkek"},
+                    {id: "2", title: "Astana"},
+                    {id: "3", title: "Tashkent"},
+                ]}/>
     )
 }
