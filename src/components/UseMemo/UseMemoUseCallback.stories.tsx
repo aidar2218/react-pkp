@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {UseMemo} from "./UseMemo";
 import React, {useMemo, useState} from "react";
-import {ItemType, Select} from "../Select/Select";
 
 const meta: Meta<typeof UseMemo> = {
     component: UseMemo,
@@ -42,3 +41,36 @@ export const HelpsToReactMemo = () => {
 }
 
 
+export const UseCallbackBehavior = () => {
+    console.log("UseCallbackBehavior rendering");
+    const [counter, setCounter] = useState(0);
+    const [books, setBooks] = useState(["React", "JavaScript", "HTML/CSS", "Redux"]);
+
+    const addBook = () => {
+        const newBooks = [...books, "Angular" + new Date().getTime()];
+        setBooks(newBooks);
+    }
+
+    const memoizedAddBook = useMemo(() => {
+        return addBook;
+    }, [books]);
+
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        {counter}
+        <Books addBook={memoizedAddBook}/>
+    </>
+}
+
+type InvisibleBooksPropsType = {
+    addBook: () => void
+}
+
+const InvisibleBooks = (props: InvisibleBooksPropsType) => {
+    console.log("InvisibleBooks rendering");
+    return <div>
+        <button onClick={() => props.addBook()}>add book</button>
+    </div>
+}
+
+const Books = React.memo(InvisibleBooks);
