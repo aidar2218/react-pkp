@@ -30,3 +30,42 @@ export const UseEffectComponent = () => {
         </>
     );
 };
+
+export const SetTimeoutUseEffect = () => {
+    console.log("SetTimeOutUseEffect rendering");
+    const [counter, setCounter] = useState(1);
+    const [fake, setFake] = useState(1);
+
+    useEffect(() => {
+        setTimeout(() => {
+            console.log("setTimeout");
+            document.title = counter.toString();
+        }, 2000);
+    }, [counter]);
+
+    return (
+        <>
+            Hello, counter: {counter}, fake: {fake}
+            <button onClick={() => setCounter(counter + 1)}>counter+</button>
+            <button onClick={() => setFake(fake + 1)}>fake+</button>
+        </>
+    )
+}
+
+export const SetIntervalUseEffect = () => {
+    console.log("SetIntervalUseEffect rendering");
+    const [counter, setCounter] = useState(1);
+
+    useEffect(() => {
+        setInterval(() => {
+            console.log("tick");
+            setCounter((state) => state + 1);
+        }, 1000);
+    },[]);
+
+    return (
+        <>
+            Hello, counter: {counter}, fake: 0
+        </>
+    )
+}
