@@ -6,6 +6,7 @@ import {Accordion, ItemType} from "./components/Accordion/Accordion";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import {OnOff} from "./components/OnOff/OnOff";
+import {Clock} from "./components/Clock/Clock";
 
 function App() {
     console.log("App rendering");
@@ -41,6 +42,8 @@ function App() {
             <UncontrolledAccordion titleValue={"Uncontrolled Menu"} />
             <UncontrolledRating />
             <UncontrolledOnOff onChange={changeMode} /> {mode.toString()}
+
+            <Clock />
         </div>
     );
 }
