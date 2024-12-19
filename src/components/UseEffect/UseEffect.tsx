@@ -57,10 +57,13 @@ export const SetIntervalUseEffect = () => {
     const [counter, setCounter] = useState(1);
 
     useEffect(() => {
-        setInterval(() => {
+        const intervalID = setInterval(() => {
             console.log("tick");
             setCounter((state) => state + 1);
         }, 1000);
+        return () => {
+            clearInterval(intervalID);
+        }
     },[]);
 
     return (
